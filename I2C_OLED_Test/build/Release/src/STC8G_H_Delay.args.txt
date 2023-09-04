@@ -1,1 +1,0 @@
-.\src\STC8G_H_Delay.c OMF2 TABS(4) CODE NOCOND SYMBOLS PRINT(.\build\Release\src\STC8G_H_Delay.lst) INCDIR(../../../../../../../../Dev Tools/keil c51/C51/INC;src;src/INC) DEFINE(__UVISION_VERSION='526') OPTIMIZE(8,SPEED) SMALL ROM(LARGE) OBJECT(.\build\Release\src\STC8G_H_Delay.o)
