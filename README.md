@@ -29,5 +29,11 @@
 
 # Demo 展示
 
-![image](public/I2C_Test.jpg)
+![image](Public/I2c_test.png)
+
+![image](Public/STC_ISP.png)
+
+![image](Public/I2c_Screen.jpg)
+
+
 
