@@ -1,0 +1,503 @@
+LX51 LINKER/LOCATER V4.66.100.0                                                         09/03/2023  23:00:50  PAGE 1
+
+
+LX51 LINKER/LOCATER V4.66.100.0, INVOKED BY:
+C:\DEV TOOLS\KEIL C51\C51\BIN\LX51.EXE .\BUILD\RELEASE\SRC\SSD1315_I2C.O, .\BUILD\RELEASE\SRC\STC8G_H_DELAY.O, .\BUILD\R
+>> ELEASE\SRC\STC8G_H_I2C.O, .\BUILD\RELEASE\SRC\STC8G_H_TIMER_ISR.O, .\BUILD\RELEASE\SRC\STC8G_H_UART.O, .\BUILD\RELEAS
+>> E\SRC\STC8G_H_UART_ISR.O, .\BUILD\RELEASE\SRC\STC8G_H_WDT.O, .\BUILD\RELEASE\SRC\SYSTEM_CONFIG.O, .\BUILD\RELEASE\SRC
+>> \MAIN.O TO .\BUILD\RELEASE\I2C_OLED_TEST PRINT (.\build\Release\I2C_OLED_Test.map) REMOVEUNUSED
+
+
+CPU MODE:     8051 MODE
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\BUILD\RELEASE\SRC\SSD1315_I2C.O (SSD1315_I2C)
+         COMMENT TYPE 0: C51 V9.60.7.0
+  .\BUILD\RELEASE\SRC\STC8G_H_DELAY.O (STC8G_H_DELAY)
+         COMMENT TYPE 0: C51 V9.60.7.0
+  .\BUILD\RELEASE\SRC\STC8G_H_I2C.O (STC8G_H_I2C)
+         COMMENT TYPE 0: C51 V9.60.7.0
+  .\BUILD\RELEASE\SRC\STC8G_H_TIMER_ISR.O (STC8G_H_TIMER_ISR)
+         COMMENT TYPE 0: C51 V9.60.7.0
+  .\BUILD\RELEASE\SRC\STC8G_H_UART.O (STC8G_H_UART)
+         COMMENT TYPE 0: C51 V9.60.7.0
+  .\BUILD\RELEASE\SRC\STC8G_H_UART_ISR.O (STC8G_H_UART_ISR)
+         COMMENT TYPE 0: C51 V9.60.7.0
+  .\BUILD\RELEASE\SRC\STC8G_H_WDT.O (STC8G_H_WDT)
+         COMMENT TYPE 0: C51 V9.60.7.0
+  .\BUILD\RELEASE\SRC\SYSTEM_CONFIG.O (SYSTEM_CONFIG)
+         COMMENT TYPE 0: C51 V9.60.7.0
+  .\BUILD\RELEASE\SRC\MAIN.O (MAIN)
+         COMMENT TYPE 0: C51 V9.60.7.0
+  C:\DEV TOOLS\KEIL C51\C51\LIB\C51S.LIB (?C_STARTUP)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\DEV TOOLS\KEIL C51\C51\LIB\C51S.LIB (?C?CLDPTR)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\DEV TOOLS\KEIL C51\C51\LIB\C51S.LIB (?C?CLDOPTR)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\DEV TOOLS\KEIL C51\C51\LIB\C51S.LIB (?C?CSTPTR)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\DEV TOOLS\KEIL C51\C51\LIB\C51S.LIB (?C?CSTOPTR)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\DEV TOOLS\KEIL C51\C51\LIB\C51S.LIB (?C?UIDIV)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\DEV TOOLS\KEIL C51\C51\LIB\C51S.LIB (?C?ULDIV)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\DEV TOOLS\KEIL C51\C51\LIB\C51S.LIB (?C?SLCMP)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\DEV TOOLS\KEIL C51\C51\LIB\C51S.LIB (?C?ULCMP)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\DEV TOOLS\KEIL C51\C51\LIB\C51S.LIB (PRINTF)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\DEV TOOLS\KEIL C51\C51\LIB\C51S.LIB (?C_INIT)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\DEV TOOLS\KEIL C51\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+  C:\DEV TOOLS\KEIL C51\C51\LIB\C51S.LIB (?C?CCASE)
+         COMMENT TYPE 1: A51 / ASM51 Assembler
+
+
+ACTIVE MEMORY CLASSES OF MODULE:  .\BUILD\RELEASE\I2C_OLED_TEST (SSD1315_I2C)
+
+BASE        START       END         USED      MEMORY CLASS
+==========================================================
+C:000000H   C:000000H   C:00FFFFH   000A90H   CODE
+I:000000H   I:000000H   I:00007FH   000029H   DATA
+C:000000H   C:000000H   C:00FFFFH   0002D4H   CONST
+X:000000H   X:000000H   X:00FFFFH   000083H   XDATA
+LX51 LINKER/LOCATER V4.66.100.0                                                       09/03/2023  23:00:50  PAGE 2
+
+
+I:000020H.0 I:000020H.0 I:00002FH.7 000001H.2 BIT
+I:000000H   I:000000H   I:0000FFH   000001H   IDATA
+
+
+MEMORY MAP OF MODULE:  .\BUILD\RELEASE\I2C_OLED_TEST (SSD1315_I2C)
+
+
+START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
+=========================================================================
+
+* * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
+000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
+000008H   00001DH   000016H   BYTE   UNIT     DATA           _DATA_GROUP_
+00001EH   00001FH   000002H   BYTE   UNIT     DATA           ?DT?MAIN
+000020H.0 000021H.0 000001H.1 BIT    UNIT     BIT            _BIT_GROUP_
+000021H.1 000021H.1 000000H.1 BIT    UNIT     BIT            ?BI?MAIN
+000021H.2 000021H   000000H.6 ---    ---      **GAP**
+000022H   000026H   000005H   BYTE   UNIT     DATA           ?DT?STC8G_H_UART
+000027H   00002AH   000004H   BYTE   UNIT     DATA           ?DT?SSD1315_I2C
+00002BH   00002BH   000001H   BYTE   UNIT     IDATA          ?STACK
+
+* * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
+000000H   000002H   000003H   ---    OFFS..   CODE           ?CO??C_STARTUP?0
+000003H   000007H   000005H   BYTE   UNIT     CODE           ?PR?_PUTCHAR?STC8G_H_UART
+000008H   000008H   000001H   BYTE   UNIT     CODE           ?PR?TIMER1_ISR_HANDLER?STC8G_H_TIMER_ISR
+000009H   00000AH   000002H   ---    ---      **GAP**
+00000BH   00000DH   000003H   BYTE   OFFS..   CODE           ?STC8G_H_TIMER_ISR?0000B
+00000EH   000019H   00000CH   BYTE   UNIT     CODE           ?PR?I2C_WAIT?STC8G_H_I2C
+00001AH   00001AH   000001H   ---    ---      **GAP**
+00001BH   00001DH   000003H   BYTE   OFFS..   CODE           ?STC8G_H_TIMER_ISR?0001B
+00001EH   000022H   000005H   ---    ---      **GAP**
+000023H   000025H   000003H   BYTE   OFFS..   CODE           ?STC8G_H_UART_ISR?00023
+000026H   000381H   00035CH   BYTE   UNIT     CODE           ?PR?PRINTF?PRINTF
+000382H   00057BH   0001FAH   BYTE   UNIT     CODE           ?C?LIB_CODE
+00057CH   00067AH   0000FFH   BYTE   UNIT     CODE           ?PR?SYSTEM_CONFIG?SYSTEM_CONFIG
+00067BH   000719H   00009FH   BYTE   UNIT     CODE           ?PR?MAIN?MAIN
+00071AH   0007A5H   00008CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+0007A6H   000817H   000072H   BYTE   UNIT     CODE           ?PR?TIMER0_ISR_HANDLER?STC8G_H_TIMER_ISR
+000818H   000887H   000070H   BYTE   UNIT     CODE           ?PR?_SHOW_FONT0608?SSD1315_I2C
+000888H   0008EAH   000063H   BYTE   UNIT     CODE           ?PR?UART1_ISR_HANDLER?STC8G_H_UART_ISR
+0008EBH   00093BH   000051H   BYTE   UNIT     CODE           ?PR?_READ_RX_BUF?STC8G_H_UART
+00093CH   00097BH   000040H   BYTE   UNIT     CODE           ?PR?_OLED_FILL?SSD1315_I2C
+00097CH   0009A9H   00002EH   BYTE   UNIT     CODE           ?PR?_I2C_WRITENBYTES?STC8G_H_I2C
+0009AAH   0009D6H   00002DH   BYTE   UNIT     CODE           ?PR?_OLED_SHOWTEXT?SSD1315_I2C
+0009D7H   0009FCH   000026H   BYTE   UNIT     CODE           ?PR?_OLED_SET_POS?SSD1315_I2C
+0009FDH   000A1FH   000023H   BYTE   UNIT     CODE           ?PR?_UART_SENDBYTE?STC8G_H_UART
+000A20H   000A3BH   00001CH   BYTE   UNIT     CODE           ?PR?OLED_INIT?SSD1315_I2C
+000A3CH   000A52H   000017H   BYTE   UNIT     CODE           ?PR?_DELAY_MS?STC8G_H_DELAY
+000A53H   000A68H   000016H   BYTE   UNIT     CODE           ?C_INITSEG
+000A69H   000A77H   00000FH   BYTE   UNIT     CODE           ?PR?I2C_RECVACK?STC8G_H_I2C
+000A78H   000A85H   00000EH   BYTE   UNIT     CODE           ?PR?_I2C_SENDBYTE?STC8G_H_I2C
+000A86H   000A8EH   000009H   BYTE   UNIT     CODE           ?PR?I2C_START?STC8G_H_I2C
+000A8FH   000A97H   000009H   BYTE   UNIT     CODE           ?PR?I2C_STOP?STC8G_H_I2C
+000A98H   000CEDH   000256H   BYTE   UNIT     CONST          ?CO?SSD1315_I2C
+000CEEH   000D6BH   00007EH   BYTE   UNIT     CONST          ?CO?MAIN
+
+* * * * * * * * * * *  X D A T A   M E M O R Y  * * * * * * * * * * * * *
+000000H   00005FH   000060H   BYTE   UNIT     XDATA          ?XD?STC8G_H_UART
+000060H   00007FH   000020H   BYTE   UNIT     XDATA          ?XD?MAIN
+000080H   000082H   000003H   BYTE   UNIT     XDATA          ?XD?SSD1315_I2C
+
+* * * * * * * * *   R E M O V E D     S E G M E N T S   * * * * * * * *
+   *DEL*:           00000FH   BYTE   UNIT     CODE           ?PR?I2C_RECVBYTE?STC8G_H_I2C
+   *DEL*:           00000EH   BYTE   UNIT     CODE           ?PR?I2C_SENDACK?STC8G_H_I2C
+   *DEL*:           00000FH   BYTE   UNIT     CODE           ?PR?I2C_SENDNAK?STC8G_H_I2C
+LX51 LINKER/LOCATER V4.66.100.0                                                       09/03/2023  23:00:50  PAGE 3
+
+
+   *DEL*:           00003EH   BYTE   UNIT     CODE           ?PR?_I2C_READNBYTES?STC8G_H_I2C
+   *DEL*:           000006H   BYTE   UNIT     DATA           ?DT?_I2C_READNBYTES?STC8G_H_I2C
+   *DEL*:           000013H   BYTE   UNIT     CODE           ?PR?_UART_SENDSTR?STC8G_H_UART
+   *DEL*:           000029H   BYTE   UNIT     CODE           ?PR?_WDT_INIT?STC8G_H_WDT
+
+
+
+OVERLAY MAP OF MODULE:   .\BUILD\RELEASE\I2C_OLED_TEST (SSD1315_I2C)
+
+
+FUNCTION/MODULE                            BIT_GROUP   DATA_GROUP 
+--> CALLED FUNCTION/MODULE                START  STOP  START  STOP
+==================================================================
+TIMER0_ISR_HANDLER/STC8G_H_TIMER_ISR      ----- -----  ----- -----
+
+*** NEW ROOT ****************************
+
+TIMER1_ISR_HANDLER/STC8G_H_TIMER_ISR      ----- -----  ----- -----
+
+*** NEW ROOT ****************************
+
+UART1_ISR_HANDLER/STC8G_H_UART_ISR        ----- -----  ----- -----
+
+*** NEW ROOT ****************************
+
+?C_C51STARTUP                             ----- -----  ----- -----
+  +--> MAIN/MAIN
+  +--> ?C_INITSEG
+
+MAIN/MAIN                                 ----- -----  0008H 0009H
+  +--> SYSTEM_CONFIG/SYSTEM_CONFIG
+  +--> _DELAY_MS/STC8G_H_DELAY
+  +--> PRINTF/PRINTF
+  +--> OLED_INIT/SSD1315_I2C
+  +--> _READ_RX_BUF/STC8G_H_UART
+  +--> _UART_SENDBYTE/STC8G_H_UART
+  +--> _OLED_SHOWTEXT/SSD1315_I2C
+
+SYSTEM_CONFIG/SYSTEM_CONFIG               ----- -----  000AH 000DH
+  +--> _DELAY_MS/STC8G_H_DELAY
+
+_DELAY_MS/STC8G_H_DELAY                   ----- -----  ----- -----
+
+PRINTF/PRINTF                             20H.0 21H.0  000AH 001DH
+  +--> _PUTCHAR/STC8G_H_UART
+
+_PUTCHAR/STC8G_H_UART                     ----- -----  ----- -----
+  +--> _UART_SENDBYTE/STC8G_H_UART
+
+_UART_SENDBYTE/STC8G_H_UART               ----- -----  ----- -----
+
+OLED_INIT/SSD1315_I2C                     ----- -----  ----- -----
+  +--> _DELAY_MS/STC8G_H_DELAY
+  +--> _I2C_WRITENBYTES/STC8G_H_I2C
+  +--> _OLED_FILL/SSD1315_I2C
+
+_I2C_WRITENBYTES/STC8G_H_I2C              ----- -----  0015H 001AH
+  +--> I2C_RECVACK/STC8G_H_I2C
+  +--> _I2C_SENDBYTE/STC8G_H_I2C
+  +--> I2C_STOP/STC8G_H_I2C
+
+I2C_RECVACK/STC8G_H_I2C                   ----- -----  ----- -----
+  +--> I2C_START/STC8G_H_I2C
+  +--> _I2C_SENDBYTE/STC8G_H_I2C
+  +--> I2C_WAIT/STC8G_H_I2C
+LX51 LINKER/LOCATER V4.66.100.0                                                       09/03/2023  23:00:50  PAGE 4
+
+
+
+I2C_START/STC8G_H_I2C                     ----- -----  ----- -----
+  +--> I2C_WAIT/STC8G_H_I2C
+
+I2C_WAIT/STC8G_H_I2C                      ----- -----  ----- -----
+
+_I2C_SENDBYTE/STC8G_H_I2C                 ----- -----  ----- -----
+  +--> I2C_WAIT/STC8G_H_I2C
+
+I2C_STOP/STC8G_H_I2C                      ----- -----  ----- -----
+  +--> I2C_WAIT/STC8G_H_I2C
+
+_OLED_FILL/SSD1315_I2C                    ----- -----  000AH 000CH
+  +--> _OLED_SET_POS/SSD1315_I2C
+  +--> I2C_START/STC8G_H_I2C
+  +--> _I2C_SENDBYTE/STC8G_H_I2C
+  +--> I2C_RECVACK/STC8G_H_I2C
+  +--> I2C_STOP/STC8G_H_I2C
+
+_OLED_SET_POS/SSD1315_I2C                 ----- -----  ----- -----
+  +--> _I2C_WRITENBYTES/STC8G_H_I2C
+
+_READ_RX_BUF/STC8G_H_UART                 ----- -----  000AH 0012H
+
+_OLED_SHOWTEXT/SSD1315_I2C                ----- -----  000AH 000FH
+  +--> _OLED_SET_POS/SSD1315_I2C
+  +--> _SHOW_FONT0608/SSD1315_I2C
+
+_SHOW_FONT0608/SSD1315_I2C                ----- -----  0010H 0014H
+  +--> _OLED_SET_POS/SSD1315_I2C
+  +--> _I2C_WRITENBYTES/STC8G_H_I2C
+
+?C_INITSEG                                ----- -----  ----- -----
+
+
+
+PUBLIC SYMBOLS OF MODULE:  .\BUILD\RELEASE\I2C_OLED_TEST (SSD1315_I2C)
+
+
+      VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
+      =================================================
+*DEL*:00000000H   DATA     BYTE      ?_I2C_ReadNBytes?BYTE
+      00000015H   DATA     BYTE      ?_I2C_WriteNBytes?BYTE
+      0000000AH   DATA     BYTE      ?_OLED_ShowText?BYTE
+      0000000AH   DATA     ---       ?_PRINTF517?BYTE
+      0000000AH   DATA     ---       ?_PRINTF?BYTE
+      0000000AH   DATA     BYTE      ?_Read_RX_BUF?BYTE
+      0000000AH   DATA     ---       ?_SPRINTF517?BYTE
+      0000000AH   DATA     ---       ?_SPRINTF?BYTE
+      01000556H   CODE     ---       ?C?CCASE
+      0100039BH   CODE     ---       ?C?CLDOPTR
+      01000382H   CODE     ---       ?C?CLDPTR
+      00000000H   NUMBER   ---       ?C?CODESEG
+      010003DAH   CODE     ---       ?C?CSTOPTR
+      010003C8H   CODE     ---       ?C?CSTPTR
+      01000546H   CODE     ---       ?C?PLDIIDATA
+      0100051FH   CODE     ---       ?C?SLCMP
+      010003FCH   CODE     ---       ?C?UIDIV
+      01000535H   CODE     ---       ?C?ULCMP
+      0100048DH   CODE     ---       ?C?ULDIV
+      00000000H   NUMBER   ---       ?C?XDATASEG
+      01000761H   CODE     ---       ?C_START
+      01000000H   CODE     ---       ?C_STARTUP
+      01000A3CH   CODE     ---       _delay_ms
+*DEL*:00000000H   CODE     ---       _I2C_ReadNBytes
+LX51 LINKER/LOCATER V4.66.100.0                                                       09/03/2023  23:00:50  PAGE 5
+
+
+      01000A78H   CODE     ---       _I2C_SendByte
+      0100097CH   CODE     ---       _I2C_WriteNBytes
+      0100093CH   CODE     ---       _OLED_Fill
+      010009D7H   CODE     ---       _OLED_Set_Pos
+      010009AAH   CODE     ---       _OLED_ShowText
+      01000088H   CODE     ---       _PRINTF
+      01000088H   CODE     ---       _PRINTF517
+      01000003H   CODE     ---       _putchar
+      010008EBH   CODE     ---       _Read_RX_BUF
+      01000082H   CODE     ---       _SPRINTF
+      01000082H   CODE     ---       _SPRINTF517
+      010009FDH   CODE     ---       _UART_SendByte
+*DEL*:00000000H   CODE     ---       _UART_SendStr
+*DEL*:00000000H   CODE     ---       _WDT_Init
+      01000A98H   CONST    ---       ascii_0608
+      00000022H   DATA     ---       COM1
+      02000060H   XDATA    ---       Deal_Buf
+      00000021H.1 BIT      BIT       Flag_1s
+      01000A6FH   CODE     ---       I2C_RecvACK
+*DEL*:00000000H   CODE     ---       I2C_RecvByte
+*DEL*:00000000H   CODE     ---       I2C_SendACK
+*DEL*:00000000H   CODE     ---       I2C_SendNAK
+      01000A86H   CODE     ---       I2C_Start
+      01000A8FH   CODE     ---       I2C_Stop
+      0100000EH   CODE     ---       I2C_Wait
+      0100067BH   CODE     ---       main
+      0000001EH   DATA     WORD      ms_Recorder
+      01000A20H   CODE     ---       OLED_Init
+      02000000H   XDATA    ---       RX1_Buffer
+      0100057CH   CODE     ---       System_config
+      010007A6H   CODE     ---       Timer0_ISR_Handler
+      01000008H   CODE     ---       Timer1_ISR_Handler
+      02000020H   XDATA    ---       TX1_Buffer
+      01000888H   CODE     ---       UART1_ISR_Handler
+
+
+
+SYMBOL TABLE OF MODULE:  .\BUILD\RELEASE\I2C_OLED_TEST (SSD1315_I2C)
+
+      VALUE       REP       CLASS    TYPE      SYMBOL NAME
+      ====================================================
+      ---         MODULE    ---      ---       SSD1315_I2C
+      01000A98H   PUBLIC    CONST    ---       ascii_0608
+      0000000AH   PUBLIC    DATA     BYTE      ?_OLED_ShowText?BYTE
+      010009AAH   PUBLIC    CODE     ---       _OLED_ShowText
+      01000A20H   PUBLIC    CODE     ---       OLED_Init
+      0100093CH   PUBLIC    CODE     ---       _OLED_Fill
+      010009D7H   PUBLIC    CODE     ---       _OLED_Set_Pos
+
+      010009D7H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100093CH   BLOCK     CODE     ---       LVL=0
+      0100093EH   BLOCK     CODE     NEAR LAB  LVL=1
+      0000000BH   SYMBOL    DATA     VOID      i
+      0000000CH   SYMBOL    DATA     VOID      n
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000A20H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000818H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+LX51 LINKER/LOCATER V4.66.100.0                                                       09/03/2023  23:00:50  PAGE 6
+
+
+      010009AAH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       STC8G_H_DELAY
+      01000A3CH   PUBLIC    CODE     ---       _delay_ms
+
+      01000A3CH   BLOCK     CODE     ---       LVL=0
+      01000A3CH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000004H   SYMBOL    DATA     VOID      i
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       STC8G_H_I2C
+      00000015H   PUBLIC    DATA     BYTE      ?_I2C_WriteNBytes?BYTE
+      0100097CH   PUBLIC    CODE     ---       _I2C_WriteNBytes
+      01000A8FH   PUBLIC    CODE     ---       I2C_Stop
+      01000A6FH   PUBLIC    CODE     ---       I2C_RecvACK
+      01000A78H   PUBLIC    CODE     ---       _I2C_SendByte
+      01000A86H   PUBLIC    CODE     ---       I2C_Start
+      0100000EH   PUBLIC    CODE     ---       I2C_Wait
+
+      0100000EH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000A86H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000A78H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000A69H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000A6FH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000A8FH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100097CH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       STC8G_H_TIMER_ISR
+      01000008H   PUBLIC    CODE     ---       Timer1_ISR_Handler
+      010007A6H   PUBLIC    CODE     ---       Timer0_ISR_Handler
+
+      010007A6H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000008H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       STC8G_H_UART
+      02000020H   PUBLIC    XDATA    ---       TX1_Buffer
+      02000000H   PUBLIC    XDATA    ---       RX1_Buffer
+      00000022H   PUBLIC    DATA     ---       COM1
+      01000003H   PUBLIC    CODE     ---       _putchar
+      010009FDH   PUBLIC    CODE     ---       _UART_SendByte
+      0000000AH   PUBLIC    DATA     BYTE      ?_Read_RX_BUF?BYTE
+      010008EBH   PUBLIC    CODE     ---       _Read_RX_BUF
+
+      010008EBH   BLOCK     CODE     ---       LVL=0
+      010008F1H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000006H   SYMBOL    DATA     VOID      cnt
+      00000007H   SYMBOL    DATA     VOID      i
+LX51 LINKER/LOCATER V4.66.100.0                                                       09/03/2023  23:00:50  PAGE 7
+
+
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      010009FDH   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000003H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       STC8G_H_UART_ISR
+      01000888H   PUBLIC    CODE     ---       UART1_ISR_Handler
+
+      01000888H   BLOCK     CODE     ---       LVL=0
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       STC8G_H_WDT
+
+      ---         MODULE    ---      ---       SYSTEM_CONFIG
+      0100057CH   PUBLIC    CODE     ---       System_config
+
+      0100057CH   BLOCK     CODE     ---       LVL=0
+      0100057CH   BLOCK     CODE     NEAR LAB  LVL=1
+      0000000AH   SYMBOL    DATA     VOID      j
+      00000007H   SYMBOL    DATA     VOID      GPIO_Pin_X
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       MAIN
+      0000001EH   PUBLIC    DATA     WORD      ms_Recorder
+      02000060H   PUBLIC    XDATA    ---       Deal_Buf
+      00000021H.1 PUBLIC    BIT      BIT       Flag_1s
+      0100067BH   PUBLIC    CODE     ---       main
+
+      0100067BH   BLOCK     CODE     ---       LVL=0
+      0100067BH   BLOCK     CODE     NEAR LAB  LVL=1
+      00000008H   SYMBOL    DATA     VOID      num
+      00000009H   SYMBOL    DATA     VOID      i
+      ---         BLOCKEND  ---      ---       LVL=1
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      ---         MODULE    ---      ---       ?C_STARTUP
+      01000000H   PUBLIC    CODE     ---       ?C_STARTUP
+
+      ---         MODULE    ---      ---       ?C?CLDPTR
+      01000382H   PUBLIC    CODE     ---       ?C?CLDPTR
+
+      ---         MODULE    ---      ---       ?C?CLDOPTR
+      0100039BH   PUBLIC    CODE     ---       ?C?CLDOPTR
+
+      ---         MODULE    ---      ---       ?C?CSTPTR
+      010003C8H   PUBLIC    CODE     ---       ?C?CSTPTR
+
+      ---         MODULE    ---      ---       ?C?CSTOPTR
+      010003DAH   PUBLIC    CODE     ---       ?C?CSTOPTR
+
+      ---         MODULE    ---      ---       ?C?UIDIV
+      010003FCH   PUBLIC    CODE     ---       ?C?UIDIV
+
+      ---         MODULE    ---      ---       ?C?ULDIV
+      0100048DH   PUBLIC    CODE     ---       ?C?ULDIV
+
+      ---         MODULE    ---      ---       ?C?SLCMP
+      0100051FH   PUBLIC    CODE     ---       ?C?SLCMP
+
+      ---         MODULE    ---      ---       ?C?ULCMP
+LX51 LINKER/LOCATER V4.66.100.0                                                       09/03/2023  23:00:50  PAGE 8
+
+
+      01000535H   PUBLIC    CODE     ---       ?C?ULCMP
+
+      ---         MODULE    ---      ---       PRINTF
+      0000000AH   PUBLIC    DATA     ---       ?_PRINTF517?BYTE
+      0000000AH   PUBLIC    DATA     ---       ?_PRINTF?BYTE
+      0000000AH   PUBLIC    DATA     ---       ?_SPRINTF517?BYTE
+      0000000AH   PUBLIC    DATA     ---       ?_SPRINTF?BYTE
+      01000088H   PUBLIC    CODE     ---       _PRINTF
+      01000088H   PUBLIC    CODE     ---       _PRINTF517
+      01000082H   PUBLIC    CODE     ---       _SPRINTF
+      01000082H   PUBLIC    CODE     ---       _SPRINTF517
+
+      ---         MODULE    ---      ---       ?C_INIT
+      01000761H   PUBLIC    CODE     ---       ?C_START
+
+      ---         MODULE    ---      ---       ?C?PLDIIDATA
+      01000546H   PUBLIC    CODE     ---       ?C?PLDIIDATA
+
+      ---         MODULE    ---      ---       ?C?CCASE
+      01000556H   PUBLIC    CODE     ---       ?C?CCASE
+
+Program Size: data=43.2 xdata=131 const=724 code=2704
+LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
