@@ -17,7 +17,8 @@ void System_config(void)
     P3_SPEED_HIGH(GPIO_Pin_X);              // P3.0, P3.1, P3.2, P3.3 high_speed
     // I2C Port Mode -- PP_Out + H_Speed
     GPIO_Pin_X = (GPIO_Pin_2 | GPIO_Pin_3); // set P3.2, P3.3 mode
-    P3_MODE_OUT_PP(GPIO_Pin_X);             // Out_pullup
+    P3_MODE_OUT_OD(GPIO_Pin_X);             // Open drain output
+    P3_PULL_UP_ENABLE(GPIO_Pin_X);          // P3.2, P3.3 pullup
     P3_SPEED_HIGH(GPIO_Pin_X);              // P3.2, P3.3 high_speed
     // Button Port Mode -- HIZ + PP
     GPIO_Pin_X = GPIO_Pin_5;       // set P5.4, P5.5 mode
