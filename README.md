@@ -26,3 +26,8 @@
 │   └───INC
 └───tools
 ```
+
+# Demo 展示
+
+![image](public/I2C_Test.jpg)
+
