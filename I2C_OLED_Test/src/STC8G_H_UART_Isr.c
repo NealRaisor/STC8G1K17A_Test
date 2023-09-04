@@ -15,12 +15,10 @@ void UART1_ISR_Handler(void) interrupt UART1_VECTOR
 
     if (TI) {
         TI = 0;
-
         if (COM1.TX_send != COM1.TX_write) {
             SBUF = TX1_Buffer[COM1.TX_send++];
-            if (COM1.TX_send >= COM1_TX_Len) {
+            if (COM1.TX_send >= COM1_TX_Len) 
                 COM1.TX_send = 0;
-            }
         } else {
             COM1.B_TX_busy = 0;
         }
