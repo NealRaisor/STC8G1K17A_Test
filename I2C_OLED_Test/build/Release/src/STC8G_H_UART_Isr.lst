@@ -1,0 +1,390 @@
+C51 COMPILER V9.60.7.0   STC8G_H_UART_ISR                                                  09/03/2023 23:00:50 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE STC8G_H_UART_ISR
+OBJECT MODULE PLACED IN .\build\Release\src\STC8G_H_UART_Isr.o
+COMPILER INVOKED BY: C:\Dev Tools\keil c51\C51\BIN\C51.exe .\SRC\STC8G_H_UART_ISR.C OMF2 TABS(4) CODE NOCOND SYMBOLS PRI
+                    -NT(.\build\Release\src\STC8G_H_UART_Isr.lst) INCDIR(../../../../../../../../Dev Tools/keil c51/C51/INC;src;src/INC) DEFI
+                    -NE(__UVISION_VERSION=526) OPTIMIZE(8,SPEED) SMALL ROM(LARGE) OBJECT(.\build\Release\src\STC8G_H_UART_Isr.o)
+
+line level    source
+
+   1          #include "STC8G_H_UART.h"
+   2          
+   3          //========================================================================
+   4          //                  UART1 Interrupt Callback Function
+   5          //========================================================================
+   6          
+   7          void UART1_ISR_Handler(void) interrupt UART1_VECTOR
+   8          {
+   9   1          if (RI) {
+  10   2              RI = 0;
+  11   2              if (COM1.RX_Cnt >= COM1_RX_Len) return;
+  12   2              RX1_Buffer[COM1.RX_Cnt++] = SBUF;
+  13   2              COM1.RX_TimeOut           = TimeOutSet1;
+  14   2          }
+  15   1      
+  16   1          if (TI) {
+  17   2              TI = 0;
+  18   2      
+  19   2              if (COM1.TX_send != COM1.TX_write) {
+  20   3                  SBUF = TX1_Buffer[COM1.TX_send++];
+  21   3                  if (COM1.TX_send >= COM1_TX_Len) {
+  22   4                      COM1.TX_send = 0;
+  23   4                  }
+  24   3              } else {
+  25   3                  COM1.B_TX_busy = 0;
+  26   3              }
+  27   2          }
+  28   1      }
+C51 COMPILER V9.60.7.0   STC8G_H_UART_ISR                                                  09/03/2023 23:00:50 PAGE 2   
+
+ASSEMBLY LISTING OF GENERATED OBJECT CODE
+
+
+             ; FUNCTION UART1_ISR_Handler (BEGIN)
+0000 C0E0              PUSH    ACC
+0002 C083              PUSH    DPH
+0004 C082              PUSH    DPL
+0006 C0D0              PUSH    PSW
+0008 75D000            MOV     PSW,#00H
+000B C007              PUSH    AR7
+                                           ; SOURCE LINE # 7
+                                           ; SOURCE LINE # 9
+000D 30981D            JNB     RI,?C0001
+                                           ; SOURCE LINE # 10
+0010 C298              CLR     RI
+                                           ; SOURCE LINE # 11
+0012 E500        E     MOV     A,COM1+03H
+0014 C3                CLR     C
+0015 9420              SUBB    A,#020H
+0017 503F              JNC     ?C0003
+                                           ; SOURCE LINE # 12
+0019 AF00        E     MOV     R7,COM1+03H
+001B 0500        E     INC     COM1+03H
+001D 7400        E     MOV     A,#LOW RX1_Buffer
+001F 2F                ADD     A,R7
+0020 F582              MOV     DPL,A
+0022 E4                CLR     A
+0023 3400        E     ADDC    A,#HIGH RX1_Buffer
+0025 F583              MOV     DPH,A
+0027 E599              MOV     A,SBUF
+0029 F0                MOVX    @DPTR,A
+                                           ; SOURCE LINE # 13
+002A 750003      E     MOV     COM1+04H,#03H
+                                           ; SOURCE LINE # 14
+002D         ?C0001:
+                                           ; SOURCE LINE # 16
+002D 309928            JNB     TI,?C0003
+                                           ; SOURCE LINE # 17
+0030 C299              CLR     TI
+                                           ; SOURCE LINE # 19
+0032 E500        E     MOV     A,COM1
+0034 6500        E     XRL     A,COM1+01H
+0036 601D              JZ      ?C0005
+                                           ; SOURCE LINE # 20
+0038 AF00        E     MOV     R7,COM1
+003A 0500        E     INC     COM1
+003C 7400        E     MOV     A,#LOW TX1_Buffer
+003E 2F                ADD     A,R7
+003F F582              MOV     DPL,A
+0041 E4                CLR     A
+0042 3400        E     ADDC    A,#HIGH TX1_Buffer
+0044 F583              MOV     DPH,A
+0046 E0                MOVX    A,@DPTR
+0047 F599              MOV     SBUF,A
+                                           ; SOURCE LINE # 21
+0049 E500        E     MOV     A,COM1
+004B C3                CLR     C
+004C 9440              SUBB    A,#040H
+004E 4008              JC      ?C0003
+                                           ; SOURCE LINE # 22
+0050 750000      E     MOV     COM1,#00H
+                                           ; SOURCE LINE # 23
+C51 COMPILER V9.60.7.0   STC8G_H_UART_ISR                                                  09/03/2023 23:00:50 PAGE 3   
+
+                                           ; SOURCE LINE # 24
+0053 8003              SJMP    ?C0003
+0055         ?C0005:
+                                           ; SOURCE LINE # 25
+0055 750000      E     MOV     COM1+02H,#00H
+                                           ; SOURCE LINE # 26
+                                           ; SOURCE LINE # 27
+                                           ; SOURCE LINE # 28
+0058         ?C0003:
+0058 D007              POP     AR7
+005A D0D0              POP     PSW
+005C D082              POP     DPL
+005E D083              POP     DPH
+0060 D0E0              POP     ACC
+0062 32                RETI    
+             ; FUNCTION UART1_ISR_Handler (END)
+
+C51 COMPILER V9.60.7.0   STC8G_H_UART_ISR                                                  09/03/2023 23:00:50 PAGE 4   
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+PLLCR. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DCH  1
+P0M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0093H  1
+P1M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0092H  1
+P2M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0096H  1
+P1M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0091H  1
+P0 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0080H  1
+P3M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B2H  1
+P2M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0095H  1
+P1 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0090H  1
+P4M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B4H  1
+P3M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B1H  1
+P2 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A0H  1
+P5M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CAH  1
+P4M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B3H  1
+P3 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B0H  1
+WKTCH. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ABH  1
+AC . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D6H  1
+P6M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CCH  1
+P5M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C9H  1
+P4 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C0H  1
+P7M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E2H  1
+P6M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CBH  1
+P5 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C8H  1
+int8 . . . . . . . . . . . . . . . . .  TYPEDEF  -----  CHAR     -----  1
+P6 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E8H  1
+P7M1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E1H  1
+EA . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AFH  1
+P7 . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F8H  1
+WKTCL. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00AAH  1
+COMx_Define. . . . . . . . . . . . . .  TYPEDEF  -----  STRUCT   -----  5
+  TX_send. . . . . . . . . . . . . . .  MEMBER   -----  U_CHAR   0000H  1
+  TX_write . . . . . . . . . . . . . .  MEMBER   -----  U_CHAR   0001H  1
+  B_TX_busy. . . . . . . . . . . . . .  MEMBER   -----  U_CHAR   0002H  1
+  RX_Cnt . . . . . . . . . . . . . . .  MEMBER   -----  U_CHAR   0003H  1
+  RX_TimeOut . . . . . . . . . . . . .  MEMBER   -----  U_CHAR   0004H  1
+SPCTL. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CEH  1
+P_SW1. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A2H  1
+P_SW2. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BAH  1
+DPH1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E5H  1
+EADC . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ADH  1
+IE . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A8H  1
+IAP_CMD. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C5H  1
+COM1 . . . . . . . . . . . . . . . . .  EXTERN   DATA   STRUCT   -----  5
+size_t . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_INT    -----  2
+DPL1 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E4H  1
+ADC_RES. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BDH  1
+IP2H . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B6H  1
+IP3H . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EEH  1
+TA . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00AEH  1
+INTCLKO. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008FH  1
+ES . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ACH  1
+PADC . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BDH  1
+IP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B8H  1
+RX1_Buffer . . . . . . . . . . . . . .  EXTERN   XDATA  ARRAY    -----  32
+ADCCFG . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DEH  1
+RI . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0098H  1
+TX1_Buffer . . . . . . . . . . . . . .  EXTERN   XDATA  ARRAY    -----  64
+C51 COMPILER V9.60.7.0   STC8G_H_UART_ISR                                                  09/03/2023 23:00:50 PAGE 5   
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+CY . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D7H  1
+TI . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0099H  1
+IAP_ADDRH. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C3H  1
+PS . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BCH  1
+SP . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0081H  1
+IAP_ADDRL. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C4H  1
+OV . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D2H  1
+PPCA . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BFH  1
+LIRTRIM. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009EH  1
+CMPCR1 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E6H  1
+uint32 . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_LONG   -----  4
+CMPCR2 . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E7H  1
+uint16 . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_INT    -----  2
+ELVD . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AEH  1
+u8 . . . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+P00. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0080H  1
+ADC_CONTR. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BCH  1
+SBUF . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0099H  1
+P10. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0090H  1
+PCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0087H  1
+P01. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0081H  1
+P20. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A0H  1
+P11. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0091H  1
+P02. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0082H  1
+int32. . . . . . . . . . . . . . . . .  TYPEDEF  -----  LONG     -----  4
+IAP_TPS. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F5H  1
+P30. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B0H  1
+P21. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A1H  1
+P12. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0092H  1
+P03. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0083H  1
+P40. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C0H  1
+P31. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B1H  1
+P22. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A2H  1
+SCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0098H  1
+P13. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0093H  1
+P04. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0084H  1
+int16. . . . . . . . . . . . . . . . .  TYPEDEF  -----  INT      -----  2
+P50. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C8H  1
+P41. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C1H  1
+P32. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B2H  1
+P23. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A3H  1
+P14. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0094H  1
+TMOD . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0089H  1
+TCON . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0088H  1
+P05. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0085H  1
+P60. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00E8H  1
+P51. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C9H  1
+P42. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C2H  1
+P33. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B3H  1
+P24. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A4H  1
+P15. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0095H  1
+P06. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0086H  1
+P70. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00F8H  1
+P61. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00E9H  1
+P52. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CAH  1
+P43. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C3H  1
+PLVD . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BEH  1
+C51 COMPILER V9.60.7.0   STC8G_H_UART_ISR                                                  09/03/2023 23:00:50 PAGE 6   
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+P34. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B4H  1
+P25. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A5H  1
+P16. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0096H  1
+P07. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0087H  1
+P71. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00F9H  1
+P62. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00EAH  1
+P53. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CBH  1
+P44. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C4H  1
+P35. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B5H  1
+P26. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A6H  1
+P17. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0097H  1
+P72. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FAH  1
+P63. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00EBH  1
+P54. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CCH  1
+P45. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C5H  1
+P36. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B6H  1
+P27. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A7H  1
+P73. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FBH  1
+P64. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ECH  1
+P55. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CDH  1
+P46. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C6H  1
+P37. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B7H  1
+P74. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FCH  1
+P65. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00EDH  1
+P56. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CEH  1
+P47. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00C7H  1
+P75. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FDH  1
+P66. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00EEH  1
+P57. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00CFH  1
+P76. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FEH  1
+P67. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00EFH  1
+P77. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00FFH  1
+IE0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0089H  1
+IE1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008BH  1
+IE2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00AFH  1
+B. . . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F0H  1
+AUXR . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008EH  1
+USBADR . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FCH  1
+IAP_CONTR. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C7H  1
+USBDAT . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ECH  1
+USBCLK . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DCH  1
+ACC. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E0H  1
+ET0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A9H  1
+ET1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00ABH  1
+TF0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008DH  1
+RSTCFG . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00FFH  1
+IP2. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B5H  1
+TF1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008FH  1
+USBCON . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00F4H  1
+IP3. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00DFH  1
+RB8. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009AH  1
+TH0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008CH  1
+EX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00A8H  1
+TH1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008DH  1
+IT0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      0088H  1
+T2H. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D6H  1
+EX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00AAH  1
+C51 COMPILER V9.60.7.0   STC8G_H_UART_ISR                                                  09/03/2023 23:00:50 PAGE 7   
+
+NAME                                    CLASS   MSPACE  TYPE    OFFSET  SIZE
+====                                    =====   ======  ====    ======  ====
+
+
+TB8. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009BH  1
+IT1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008AH  1
+T3H. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D4H  1
+P. . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D0H  1
+T4H. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D2H  1
+SM0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009FH  1
+TL0. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008AH  1
+SM1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009EH  1
+TL1. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   008BH  1
+T2L. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D7H  1
+SM2. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009DH  1
+T3L. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D5H  1
+T4L. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D3H  1
+PT0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B9H  1
+RS0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D3H  1
+PT1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BBH  1
+RS1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D4H  1
+IAP_DATA . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C2H  1
+TR0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008CH  1
+TR1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      008EH  1
+WDT_CONTR. . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C1H  1
+PX0. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00B8H  1
+PX1. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00BAH  1
+IRTRIM . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009FH  1
+u32. . . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_LONG   -----  4
+DPH. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0083H  1
+u16. . . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_INT    -----  2
+T4T3M. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D1H  1
+ADC_RESL . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00BEH  1
+DPL. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0082H  1
+UART1_ISR_Handler. . . . . . . . . . .  PUBLIC   CODE   PROC     0000H  -----
+SPSTAT . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CDH  1
+IPH. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B7H  1
+S2BUF. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009BH  1
+S3BUF. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ADH  1
+REN. . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      009CH  1
+S4BUF. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0085H  1
+S2CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009AH  1
+DPS. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00E3H  1
+S3CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00ACH  1
+S4CON. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0084H  1
+AUXINTIF . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00EFH  1
+wchar_t. . . . . . . . . . . . . . . .  TYPEDEF  -----  CHAR     -----  1
+SADEN. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00B9H  1
+SADDR. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00A9H  1
+IAP_TRIG . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00C6H  1
+F0 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D5H  1
+IRCBAND. . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   009DH  1
+F1 . . . . . . . . . . . . . . . . . .  ABSBIT   -----  BIT      00D1H  1
+PSW. . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00D0H  1
+uint8. . . . . . . . . . . . . . . . .  TYPEDEF  -----  U_CHAR   -----  1
+SPDAT. . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   00CFH  1
+P0M0 . . . . . . . . . . . . . . . . .  SFR      DATA   U_CHAR   0094H  1
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    102    ----
+   CONSTANT SIZE    =   ----    ----
+C51 COMPILER V9.60.7.0   STC8G_H_UART_ISR                                                  09/03/2023 23:00:50 PAGE 8   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
