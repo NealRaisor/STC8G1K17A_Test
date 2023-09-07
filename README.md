@@ -41,7 +41,9 @@
 
 ![image](Public/I2c_Screen.jpg)
 
+#### I2C ENS160 + AHT21 模块测试
 
+![image](Public/ens160_aht21.png)
 
 
 
