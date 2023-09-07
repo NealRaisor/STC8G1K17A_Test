@@ -31,11 +31,19 @@
 
 # Demo 展示
 
-![image](Public/I2c_test.png)
+#### UART 串口收发测试
 
 ![image](Public/STC_ISP.png)
 
+#### I2C 屏幕测试
+
+![image](Public/I2c_test.png)
+
 ![image](Public/I2c_Screen.jpg)
+
+
+
+
 
 
 
