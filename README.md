@@ -47,7 +47,7 @@
 
 #### I2C ENS160 + AHT21 + OLED 模块测试
 
-![image](Public/HTO_Test.png)
+![image](Public/HTO_Test.jpg)
 
 
 
